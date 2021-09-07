@@ -270,7 +270,6 @@
         "beforeColon": false,
         "afterColon": true
       }],
-      "quotes": [2, "double", "avoid-escape"],
       "max-depth": [0, 4],
       "max-len": [0, 80, 4],
       "max-nested-callbacks": [0, 2],

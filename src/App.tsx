@@ -1,11 +1,16 @@
 import React from "react";
-import AppRoutes from "./components/AppRoutes";
+import {Navbar, AppRoutes} from "./components";
+import {Layout} from "antd";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <AppRoutes />
-    </div>
+    <Layout>
+      <Navbar />
+      <Layout.Content>
+        <AppRoutes />
+      </Layout.Content>
+    </Layout>
   );
 };
 
