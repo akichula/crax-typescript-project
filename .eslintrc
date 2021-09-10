@@ -369,10 +369,7 @@
       "no-unused-expressions": [2, {
         "allowShortCircuit": true
       }],
-      "no-unused-vars": [1, {
-        "vars": "all",
-        "args": "after-used"
-      }],
+      "no-unused-vars": "warn",
       "no-use-before-define": [2, "nofunc"],
       "no-var": [2],
       "no-void": [0],
