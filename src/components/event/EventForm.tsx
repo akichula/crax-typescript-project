@@ -45,7 +45,7 @@ const EventForm:React.FC<IEventFormProps> = (props) => {
       <Form.Item
         label="Choose event date"
         name="Date"
-        rules={[rules.required("Date is required!")]}
+        rules={[rules.required("Date is required!"), rules.isDateAfter("No todos in past!")]}
       >
         <DatePicker
           onChange={(date: Moment | null) => selectDate(date)}
