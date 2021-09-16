@@ -44,7 +44,7 @@ const LoginForm: React.FC = () => {
       </Form.Item>
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit" loading={isLoading}>
-          Submit
+          Log in
         </Button>
       </Form.Item>
     </Form>

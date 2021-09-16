@@ -1,7 +1,7 @@
 import {AuthActionsEnum, ISetAuthAction, ISetErrorAction, ISetIsLoading, ISetUser} from "./types";
 import {IUser} from "../../../models/user";
 import {TAppDispatch} from "../../store";
-import axios from "axios";
+import UserService from "../../../api/UserService";
 
 export const AuthActionCreator = {
   setUser: (user: IUser): ISetUser => ({type: AuthActionsEnum.SET_USER, payload: user}),
@@ -12,13 +12,13 @@ export const AuthActionCreator = {
     try {
       dispatch(AuthActionCreator.setIsLoading(true));
       setTimeout(async () => {
-        const getUsers = await axios.get<IUser[]>("./users.json");
+        const getUsers = await UserService.getUsers();
         const mockUser = getUsers.data.find((user) => user.username === username && user.password === password);
         if (mockUser) {
           localStorage.setItem("auth", "true");
           localStorage.setItem("username", mockUser.username);
-          dispatch(AuthActionCreator.setIsAuth(true));
           dispatch(AuthActionCreator.setUser(mockUser));
+          dispatch(AuthActionCreator.setIsAuth(true));
         } else {
           dispatch(AuthActionCreator.setError("Invalid username or password!"));
         }
@@ -38,8 +38,4 @@ export const AuthActionCreator = {
       console.error(e);
     }
   }
-};
-
-export const allActionCreators = {
-  ...AuthActionCreator
 };

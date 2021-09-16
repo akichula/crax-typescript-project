@@ -5,7 +5,7 @@ type TRules = {
 }
 
 const rules = {
-  required: (message: string): TRules => ({
+  required: (message: string = "It's required field!"): TRules => ({
     required: true,
     message
   })

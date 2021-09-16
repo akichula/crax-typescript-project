@@ -7,3 +7,5 @@ export {
   Navbar,
   LoginForm
 };
+
+export * from "./event";
