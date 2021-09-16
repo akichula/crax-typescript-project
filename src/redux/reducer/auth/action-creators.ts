@@ -30,9 +30,16 @@ export const AuthActionCreator = {
   },
   logout: () => async (dispatch: TAppDispatch) => {
     try {
-
-    } catch (e) {
-
+      localStorage.removeItem("auth");
+      localStorage.removeItem("username");
+      dispatch(AuthActionCreator.setUser({} as IUser));
+      dispatch(AuthActionCreator.setIsAuth(false));
+    } catch (e: unknown) {
+      console.error(e);
     }
   }
+};
+
+export const allActionCreators = {
+  ...AuthActionCreator
 };
